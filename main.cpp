@@ -44,6 +44,16 @@ int main()
         size_t age;
     } human_being;
 
+    struct patientList
+    {
+        Patient person;
+        patientList *next;
+    };
+
+    patientList *head;
+    patientList *current;
+
+
 
     return 0;
 }
