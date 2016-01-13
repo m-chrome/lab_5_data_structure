@@ -13,20 +13,21 @@ namespace patient {
     class Patient
     {
         private:
-            string FIO;
+            struct FIO
+            {
+                string surname;
+                string name;
+                string patronymic;
+            } human;
             size_t age;
 
         public:
             // Конструкторы:
             Patient();
-            Patient(string pFIO, size_t pAge);
+            Patient(string pSurname, string pName, string pPatronymic, size_t pAge);
 
             // Деструктор
             ~Patient();
-
-            // Геттеры для данных класса:
-            string getFIO() const;
-            size_t getAge() const;
     };
 
 }

@@ -6,31 +6,26 @@ namespace patient {
 
     // Конструкторы
     Patient::Patient()
-        :
-          FIO(""),
-          age(0)
-    {}
+    {
+        human.surname="";
+        human.name="";
+        human.patronymic="";
+        age=0;
+    }
 
-    Patient::Patient(string pFIO, size_t pAge)
-        :
-          FIO(pFIO),
-          age(pAge)
-    {}
+    Patient::Patient(string pSurname, string pName, string pPatronymic, size_t pAge)
+    {
+        human.surname=pSurname;
+        human.name=pName;
+        human.patronymic=pPatronymic;
+        age=pAge;
+    }
 
     // Деструктор
     Patient::~Patient()
     {
-        FIO.clear();
-    }
-
-    // Геттеры для данных пациента
-    string Patient::getFIO() const
-    {
-        return FIO;
-    }
-
-    size_t Patient::getAge() const
-    {
-        return age;
+        human.surname.clear();
+        human.name.clear();
+        human.patronymic.clear();
     }
 }
