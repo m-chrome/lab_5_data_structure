@@ -12,4 +12,5 @@ qtcAddDeployment()
 QMAKE_CXXFLAGS += -std=c++1y
 
 HEADERS += \
-    patient.hpp
+    patient.hpp \
+    list.hpp
