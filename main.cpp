@@ -20,6 +20,7 @@
 #include <string>
 
 #include "patient.hpp"
+#include "list.hpp"
 
 using namespace std;
 using namespace patient;
@@ -42,18 +43,20 @@ int main()
         string name;
         string patronymic;
         size_t age;
-    } human_being;
+    } human;
 
-    struct patientList
+    // Создадим пустой указатель на будущий список
+    patientList *head = NULL;
+    // Переменнная для дальнейших элементов списка
+    // Индекс, по умолчанию равен 1
+    size_t index=1;
+
+    while(data_list >> human.surname >> human.name >> human.patronymic >> human.age)
     {
-        Patient person;
-        patientList *next;
-    };
-
-    patientList *head;
-    patientList *current;
-
-
+        Patient person(human.surname, human.name, human.patronymic, human.age);
+        insertPatient(index, head,person);
+        index++;
+    }
 
     return 0;
 }
