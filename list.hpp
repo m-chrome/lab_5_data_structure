@@ -1,6 +1,7 @@
 #ifndef LIST
 #define LIST
 
+#include <iostream>
 #include "patient.hpp"
 
 using namespace std;
@@ -13,26 +14,9 @@ struct patientList
 };
 
 // Методы
-// Метод создания списка (с пустым полем Patient)
-// Нужна ли она?
-// Ведь можно запилить просто нулевой указатель
-void createPatientList(size_t size, patientList** head)
-{
-    if (size > 0)
-    {
-        *head = new patientList;
-        // создаем пустую "форму"
-        Patient human;
-        (*head)->person = human;
-        (*head)->next = NULL;
-        createPatientList(size-1, &((*head)->next));
-    }
-    else
-        *head = NULL;
-}
 
 // Метод вставки нового элемента
-patientList* insertPatient(size_t number, patientList* head, Patient human)
+patientList* insertPatient(size_t number, patientList* head, const Patient& human)
 {
     number--;
     // Создаём новый список с элементом, который вставляем
@@ -64,7 +48,6 @@ patientList* insertPatient(size_t number, patientList* head, Patient human)
             newPatient->next = current->next;
             current->next = newPatient;
             current = newPatient;
-
         }
     }
     return head;
@@ -81,6 +64,19 @@ void searchPatient()
 {
 
 }
+
+// Показать содержимое списка
+void print(patientList* head)
+{
+    if (head != NULL)
+    {
+        cout << head->person << endl;
+        // Переход на следующий элемент списка
+        print(head->next);
+    }
+    else cout << "\n";
+}
+
 
 #endif // LIST
 
