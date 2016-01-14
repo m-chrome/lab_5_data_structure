@@ -1,3 +1,4 @@
+#include <iostream>
 #include "patient.hpp"
 
 using namespace std;
@@ -28,4 +29,5 @@ namespace patient {
         human.name.clear();
         human.patronymic.clear();
     }
+
 }
