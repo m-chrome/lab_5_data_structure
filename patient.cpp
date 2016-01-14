@@ -30,4 +30,11 @@ namespace patient {
         human.patronymic.clear();
     }
 
+    // Перегрузка оператора вывода для билета
+    ostream& operator<<(ostream& person, const Patient& data)
+    {
+            person << data.human.surname << ' ' << data.human.name << ' '
+                    << data.human.patronymic << ' ' << data.age;
+            return person;
+    }
 }

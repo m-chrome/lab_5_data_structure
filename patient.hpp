@@ -12,7 +12,7 @@ namespace patient {
 
     class Patient
     {
-        private:
+        public:
             struct FIO
             {
                 string surname;
@@ -21,7 +21,6 @@ namespace patient {
             } human;
             size_t age;
 
-        public:
             // Конструкторы:
             Patient();
             Patient(string pSurname, string pName, string pPatronymic, size_t pAge);
@@ -30,5 +29,6 @@ namespace patient {
             ~Patient();
     };
 
+    ostream& operator<<(ostream& person, const Patient& data);
 }
 #endif // PATIENT_HPP
