@@ -49,15 +49,16 @@ int main()
     patientList *head = NULL;
     // Переменнная для дальнейших элементов списка
     // Индекс, по умолчанию равен 1
-    size_t index=1;
+    size_t index=0;
 
     while(data_list >> human.surname >> human.name >> human.patronymic >> human.age)
     {
-        Patient person(human.surname, human.name, human.patronymic, human.age);
-        insertPatient(index, head,person);
         index++;
+        Patient person(human.surname, human.name, human.patronymic, human.age);
+        head=insertPatient(index, head,person);
     }
-
+    cout << index << endl;
+    print(head);
     return 0;
 }
 
