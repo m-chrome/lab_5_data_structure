@@ -7,11 +7,11 @@
  * Реализовать операции:
  *
  * 1. получить доступ к элементу по индексу (номеру);
- * 2. добавить новый элемент;
+ * 2. добавить новый элемент; (добавление только в конец) (CHECK!)
  * 3. удалить элемент по значению;
  * 4. объединить два набора в один;
  * 5. разбить один набор на несколько;
- * 6. определить число элементов;
+ * 6. определить число элементов; (CHECK!)
  * 7. создать копию.
 */
 
@@ -49,7 +49,7 @@ int main()
     patientList *head = NULL;
     // Переменнная для дальнейших элементов списка
     // Индекс, по умолчанию равен 1
-    size_t index=0;
+    size_t index=0, num=0;
 
     while(data_list >> human.surname >> human.name >> human.patronymic >> human.age)
     {
@@ -57,7 +57,8 @@ int main()
         Patient person(human.surname, human.name, human.patronymic, human.age);
         head=insertPatient(index, head,person);
     }
-    cout << index << endl;
+    //cout << index << endl;
+    countList(head, num);
     print(head);
     return 0;
 }
