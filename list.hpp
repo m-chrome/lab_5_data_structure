@@ -65,6 +65,25 @@ void searchPatient()
 
 }
 
+// Метод копирования списка
+patientList* copyList(patientList* parent)
+{
+    patientList *copy = new patientList;
+    return copy;
+}
+
+// Метод подсчёта элементов в списке
+void countList(patientList* head, size_t number)
+{
+    if (head != NULL)
+    {
+        number++;
+        countList(head->next, number);
+    }
+    else
+        cout << number << endl;
+}
+
 // Показать содержимое списка
 void print(patientList* head)
 {
@@ -79,4 +98,3 @@ void print(patientList* head)
 
 
 #endif // LIST
-
