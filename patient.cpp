@@ -50,13 +50,5 @@ namespace patient {
     size_t Patient::getAge() const
     {
         return age;
-    }
-
-    // Перегрузка оператора вывода для билета
-    ostream& operator<<(ostream& person, const Patient& data)
-    {
-            person << data.getSurname() << ' ' << data.getName() << ' '
-                    << data.getPatronymic() << ' ' << data.getAge();
-            return person;
-    }
+    }    
 }
