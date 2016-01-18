@@ -20,6 +20,8 @@ namespace patient {
             size_t age;
 
         public:
+
+
             // Конструкторы:
             Patient();
             Patient(string pSurname, string pName, string pPatronymic, size_t pAge);
@@ -32,8 +34,21 @@ namespace patient {
             string getName() const;
             string getPatronymic() const;
             size_t getAge() const;
-    };
 
-    ostream& operator<<(ostream& person, const Patient& data);
+            friend ostream& operator<<(ostream& person, const Patient& data)
+            {
+                person << data.getSurname() << ' ' << data.getName() << ' '
+                       << data.getPatronymic() << ' ' << data.getAge();
+                return person;
+            }
+
+            bool operator==(Patient& person)
+            {
+                return (surname==person.surname) &&
+                        (name==person.name) &&
+                        (patronymic==person.patronymic) &&
+                        (age==person.age);
+            }
+    };
 }
 #endif // PATIENT_HPP
